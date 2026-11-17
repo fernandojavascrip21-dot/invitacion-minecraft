@@ -7,16 +7,17 @@
 <meta name="theme-color" content="#5b8ef3">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;600;700&family=VT323&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;600;700&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
 <style>
 :root{
   --gh:132px;
-  --px-font:'Pixelify Sans','VT323',monospace;
-  --body-font:'VT323',monospace;
+  --px-font:'Pixelify Sans','Nunito',system-ui,sans-serif;
+  --body-font:'Nunito',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --outline:0 2px 0 #000,2px 0 0 #000,-2px 0 0 #000,0 -2px 0 #000,2px 2px 0 #000;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;background:#120c07}
-body{font-family:var(--body-font);font-size:20px;color:#fff;overflow-x:hidden;-webkit-tap-highlight-color:transparent}
+body{font-family:var(--body-font);font-size:17px;font-weight:700;line-height:1.4;color:#fff;overflow-x:hidden;-webkit-tap-highlight-color:transparent}
 body.locked{overflow:hidden;height:100vh}
 button{font:inherit;color:inherit}
 a{color:inherit}
@@ -31,10 +32,10 @@ a{color:inherit}
   transition:opacity .7s ease,visibility .7s}
 .start.gone{opacity:0;visibility:hidden}
 .start h1{font-family:var(--px-font);font-weight:700;font-size:clamp(1.6rem,6.4vw,2.6rem);line-height:1.1;color:#ffe066;text-shadow:3px 3px 0 #4a3500}
-.start .sub{font-size:clamp(1.25rem,4.2vw,1.6rem);color:#eadfce;margin-top:8px}
-.start .tap{font-size:1.15rem;color:#b9b0a4;margin-top:16px}
+.start .sub{font-size:clamp(1.05rem,3.8vw,1.3rem);font-weight:800;color:#fff3df;margin-top:10px}
+.start .tap{font-size:1rem;color:#d9cfc1;margin-top:14px}
 .scene{--cs:clamp(110px,30vw,150px);width:var(--cs);height:var(--cs);margin:48px auto 52px;perspective:700px;cursor:pointer;touch-action:manipulation;-webkit-user-select:none;user-select:none;outline:none}
-.tap-cta{font-family:var(--px-font);font-weight:600;font-size:clamp(1.1rem,4.2vw,1.45rem);color:#fff;text-shadow:2px 2px 0 #000;animation:pulse 1.3s ease-in-out infinite}
+.tap-cta{font-family:var(--body-font);font-weight:900;font-size:clamp(1.05rem,4vw,1.3rem);color:#fff;text-shadow:var(--outline);animation:pulse 1.3s ease-in-out infinite}
 .tap-cta b{color:#ffe066}
 @keyframes pulse{50%{transform:scale(1.06)}}
 .cube{position:relative;width:100%;height:100%;transform-style:preserve-3d;animation:spin 9s linear infinite;--crack:0}
@@ -53,7 +54,7 @@ a{color:inherit}
 
 /* ---------- Botones estilo bloque ---------- */
 .mc-btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:.45em;
-  font-family:var(--px-font);font-weight:600;font-size:clamp(1rem,3.4vw,1.2rem);line-height:1.1;color:#fff;text-decoration:none;
+  font-family:var(--body-font);font-weight:900;font-size:clamp(1rem,3.4vw,1.15rem);line-height:1.15;letter-spacing:.01em;color:#fff;text-decoration:none;
   text-shadow:2px 2px 0 #383838;background:#8b8b8b;border:3px solid #111;
   box-shadow:inset 3px 3px 0 #bababa,inset -3px -3px 0 #565656;padding:.75em 1.3em;cursor:pointer;user-select:none;
   transition:transform .08s,background .15s}
@@ -86,7 +87,8 @@ a{color:inherit}
 .title.float{animation:bob 3.2s ease-in-out infinite}
 .title.float2{animation-delay:-1.6s}
 @keyframes bob{50%{transform:translateY(-6px)}}
-.bw{position:relative;flex:none;filter:drop-shadow(0 calc(var(--s) * .45) 0 rgba(0,0,0,.3))}
+.bw{position:relative;flex:none;--o:max(1px,calc(var(--s) * .16));
+  filter:drop-shadow(var(--o) 0 0 #1a0d05) drop-shadow(calc(var(--o) * -1) 0 0 #1a0d05) drop-shadow(0 var(--o) 0 #1a0d05) drop-shadow(0 calc(var(--o) * -1) 0 #1a0d05) drop-shadow(0 calc(var(--s) * .45) 0 rgba(0,0,0,.3))}
 
 /* Bloques */
 .blk{position:absolute;width:var(--s);height:var(--s);background-size:100% 100%;
@@ -100,9 +102,21 @@ a{color:inherit}
 .bw.glow .blk{animation:shine 2.6s ease-in-out infinite;animation-delay:calc(var(--x) * 50ms)}
 @keyframes shine{0%,62%,100%{filter:brightness(1)}76%{filter:brightness(1.6) saturate(1.2)}}
 .t-grass{background-image:var(--t-grass)}.t-dirt{background-image:var(--t-dirt)}.t-stone{background-image:var(--t-stone)}
-.t-brick{background-image:var(--t-brick)}.t-gold{background-image:var(--t-gold)}.t-diamond{background-image:var(--t-diamond)}
+.t-brick{background-image:var(--t-brick)}.t-red{background-image:var(--t-red)}.t-gold{background-image:var(--t-gold)}.t-diamond{background-image:var(--t-diamond)}
 .t-planks{background-image:var(--t-planks)}.t-log{background-image:var(--t-log)}.t-leaves{background-image:var(--t-leaves)}
 
+.dragons{position:absolute;inset:0;pointer-events:none;z-index:2;overflow:hidden}
+.dragon{position:absolute;left:0;top:var(--y);animation:flyR var(--dur) linear infinite;animation-delay:var(--dl)}
+.dragon.rev{animation-name:flyL}
+@keyframes flyR{from{transform:translateX(-28vw)}to{transform:translateX(112vw)}}
+@keyframes flyL{from{transform:translateX(112vw)}to{transform:translateX(-28vw)}}
+.dragon-drop{animation:dropIn 1.5s cubic-bezier(.2,.9,.3,1.15) both;animation-delay:var(--dd)}
+@keyframes dropIn{from{transform:translateY(-75vh) rotate(28deg)}to{transform:none}}
+.dragon-sprite{width:var(--dw);aspect-ratio:3/2;background-size:200% 100%;background-repeat:no-repeat;
+  image-rendering:crisp-edges;image-rendering:pixelated;filter:drop-shadow(0 8px 0 rgba(0,0,0,.16));
+  animation:flap .38s steps(1) infinite,hover 1.8s ease-in-out infinite alternate;animation-delay:0s,var(--hd)}
+@keyframes flap{0%{background-position:0 0}50%{background-position:100% 0}}
+@keyframes hover{from{transform:translateY(-9px)}to{transform:translateY(9px)}}
 .ground{position:absolute;left:0;right:0;bottom:0;height:var(--gh);z-index:2;overflow:hidden}
 .trees{position:absolute;inset:0;pointer-events:none;z-index:1}
 .tree{position:absolute;bottom:var(--gh)}
@@ -117,20 +131,20 @@ a{color:inherit}
   font-size:clamp(2rem,7vw,3.2rem);line-height:1;color:#86ff2a;
   text-shadow:3px 0 0 #000,-3px 0 0 #000,0 3px 0 #000,0 -3px 0 #000,4px 4px 0 #000;transition:transform .4s cubic-bezier(.34,1.8,.64,1)}
 .xp-level.show{transform:translate(-50%,-62%) scale(1)}
-.xp-label{font-family:var(--px-font);text-align:center;font-size:clamp(1.05rem,3.6vw,1.35rem);text-shadow:2px 2px 0 #000;margin-top:12px}
+.xp-label{font-family:var(--body-font);font-weight:900;text-align:center;font-size:clamp(1.1rem,3.8vw,1.35rem);text-shadow:var(--outline);margin-top:12px}
 .xp-label b{color:#86ff2a}
 
-.tagline{font-family:var(--px-font);font-size:clamp(1.05rem,3.6vw,1.45rem);line-height:1.25;text-align:center;max-width:640px;
-  background:rgba(0,0,0,.45);border:3px solid rgba(0,0,0,.6);padding:.55em 1em;min-height:2.4em;opacity:0;transition:opacity .3s}
+.tagline{font-family:var(--body-font);font-weight:900;font-size:clamp(1.08rem,3.8vw,1.4rem);line-height:1.35;text-align:center;max-width:640px;
+  background:rgba(10,14,30,.72);border:3px solid #000;padding:.6em 1.1em;min-height:2.4em;opacity:0;transition:opacity .3s}
 .tagline.show{opacity:1}
 .tagline.typing::after{content:'_';animation:blink .6s steps(2) infinite}
 @keyframes blink{50%{opacity:0}}
-.hero-info{font-family:var(--px-font);font-weight:600;font-size:clamp(.95rem,3.2vw,1.2rem);line-height:1.3;text-align:center;color:#ffe066;
-  text-shadow:2px 2px 0 #000;background:rgba(0,0,0,.35);padding:.4em .9em;max-width:640px;opacity:0;transform:translateY(8px);transition:opacity .5s,transform .5s}
+.hero-info{font-family:var(--body-font);font-weight:900;font-size:clamp(1rem,3.4vw,1.2rem);line-height:1.5;text-align:center;color:#ffe066;
+  text-shadow:2px 2px 0 #000;background:rgba(10,14,30,.66);border:3px solid #000;padding:.45em .9em;max-width:640px;opacity:0;transform:translateY(8px);transition:opacity .5s,transform .5s}
 .hero-info.show{opacity:1;transform:none}
 .hero-info span{white-space:nowrap;margin:0 .35em;display:inline-block}
-.scroll-hint{position:absolute;left:50%;bottom:calc(var(--gh) + 16px);z-index:4;transform:translateX(-50%);font-family:var(--px-font);
-  font-size:clamp(1rem,3.2vw,1.2rem);color:#fff;text-shadow:2px 2px 0 #000;text-decoration:none;opacity:0;pointer-events:none;transition:opacity .6s;white-space:nowrap}
+.scroll-hint{position:absolute;left:50%;bottom:calc(var(--gh) + 16px);z-index:4;transform:translateX(-50%);font-family:var(--body-font);font-weight:900;
+  font-size:clamp(1rem,3.2vw,1.15rem);color:#fff;text-shadow:var(--outline);text-decoration:none;opacity:0;pointer-events:none;transition:opacity .6s;white-space:nowrap}
 .scroll-hint.show{opacity:1;pointer-events:auto;animation:hint 1.4s ease-in-out infinite}
 @keyframes hint{50%{transform:translate(-50%,6px)}}
 
@@ -144,9 +158,9 @@ a{color:inherit}
 @keyframes twinkle{0%,78%,100%{opacity:0;transform:scale(.3)}86%{opacity:1;transform:scale(1)}}
 .sec{position:relative;z-index:1;max-width:900px;margin:0 auto clamp(64px,11vw,110px)}
 .sec:last-child{margin-bottom:0}
-.kicker{text-align:center;font-family:var(--px-font);font-size:clamp(.95rem,2.9vw,1.15rem);letter-spacing:.08em;text-transform:uppercase;color:#ffe066;text-shadow:2px 2px 0 #000;margin-bottom:8px}
+.kicker{text-align:center;font-family:var(--body-font);font-weight:900;font-size:clamp(.92rem,2.9vw,1.05rem);letter-spacing:.12em;text-transform:uppercase;color:#ffe066;text-shadow:2px 2px 0 #000;margin-bottom:8px}
 .kicker.gap{margin-bottom:16px}
-.sec-title{text-align:center;font-family:var(--px-font);font-weight:700;font-size:clamp(1.7rem,6vw,2.7rem);line-height:1.05;text-shadow:3px 3px 0 #000;margin-bottom:22px}
+.sec-title{text-align:center;font-family:var(--px-font);font-weight:700;font-size:clamp(1.7rem,6vw,2.7rem);line-height:1.05;text-shadow:3px 3px 0 #000,-1px -1px 0 #000;margin-bottom:22px;letter-spacing:.02em}
 
 /* Paneles construidos con bloques */
 .panel{position:relative;padding:clamp(24px,5vw,46px) clamp(18px,4.5vw,46px);outline:3px dashed rgba(255,255,255,.3);outline-offset:-3px}
@@ -155,17 +169,19 @@ a{color:inherit}
 .panel-content{position:relative;z-index:1}
 .panel-content>*{opacity:0;transform:translateY(14px);transition:opacity .45s ease,transform .45s ease;transition-delay:calc(var(--i,0) * 110ms)}
 .panel.built .panel-content>*{opacity:1;transform:none}
-.sign-title{font-family:var(--px-font);font-weight:700;text-align:center;font-size:clamp(1.8rem,6.4vw,2.8rem);line-height:1.05;color:#2a1a08;text-shadow:2px 2px 0 rgba(255,236,190,.45);margin-bottom:12px}
+.sign-title{font-family:var(--px-font);font-weight:700;text-align:center;font-size:clamp(1.8rem,6.4vw,2.8rem);line-height:1.05;color:#1a0f03;text-shadow:0 2px 0 rgba(255,240,205,.7);margin-bottom:16px;letter-spacing:.02em}
 .sign-title.light{color:#fff;text-shadow:3px 3px 0 #000}
-.msg{font-size:clamp(1.35rem,4vw,1.65rem);line-height:1.15;text-align:center;color:#22160a;max-width:660px;margin:0 auto}
+.msg{font-size:clamp(1.05rem,3.4vw,1.22rem);font-weight:800;line-height:1.55;text-align:center;color:#1f1407;max-width:680px;margin:0 auto;
+  background:rgba(255,247,226,.9);border:3px solid #3a2711;padding:14px 18px;box-shadow:inset -3px -3px 0 rgba(0,0,0,.1)}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin-top:22px}
-.card{display:flex;align-items:center;gap:12px;padding:12px 14px;background:rgba(255,244,214,.66);border:3px solid #3a2711;
+.card{display:flex;align-items:center;gap:12px;padding:12px 14px;background:rgba(255,247,226,.92);border:3px solid #3a2711;
   box-shadow:inset -3px -3px 0 rgba(0,0,0,.12),inset 3px 3px 0 rgba(255,255,255,.35);color:#22160a}
 .card img{width:46px;height:46px;flex:none}
-.card h3{font-family:var(--px-font);font-weight:700;font-size:.95rem;letter-spacing:.08em;text-transform:uppercase;color:#6b4513}
-.card p{font-size:1.45rem;line-height:1.05}
-.card small{display:block;font-size:1.15rem;opacity:.8;margin-top:2px}
-.note{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:18px;font-size:clamp(1.25rem,3.6vw,1.45rem);color:#22160a;text-align:center}
+.card h3{font-family:var(--body-font);font-weight:900;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:#6b4513}
+.card p{font-size:1.08rem;font-weight:900;line-height:1.3}
+.card small{display:block;font-size:.92rem;font-weight:700;color:#4a3518;margin-top:3px}
+.note{display:flex;align-items:center;justify-content:center;gap:10px;margin:18px auto 0;width:fit-content;max-width:100%;font-size:clamp(1rem,3.2vw,1.12rem);font-weight:900;color:#1f1407;text-align:center;
+  background:rgba(255,247,226,.9);border:3px solid #3a2711;padding:8px 14px}
 .note img{width:28px;height:28px;flex:none}
 
 /* Cuenta regresiva */
@@ -173,10 +189,10 @@ a{color:inherit}
 .cbox{aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;background-image:var(--t-stone);background-size:100% 100%;
   border:4px solid #0b0b0b;box-shadow:inset -6px -6px 0 rgba(0,0,0,.35),inset 6px 6px 0 rgba(255,255,255,.16),0 8px 0 rgba(0,0,0,.4)}
 .cbox .num{font-family:var(--px-font);font-weight:700;font-size:clamp(1.9rem,8.5vw,3.8rem);line-height:1;text-shadow:3px 3px 0 #000}
-.cbox .lbl{font-size:clamp(1rem,3.2vw,1.45rem);text-transform:uppercase;color:#ffe066;text-shadow:2px 2px 0 #000}
+.cbox .lbl{font-size:clamp(.72rem,2.6vw,1rem);font-weight:900;letter-spacing:.06em;margin-top:4px;text-transform:uppercase;color:#ffe066;text-shadow:2px 2px 0 #000}
 .num.tick{animation:tick .35s ease}
 @keyframes tick{0%{transform:scale(1.25)}100%{transform:none}}
-.count-msg{text-align:center;font-family:var(--px-font);font-size:clamp(1.1rem,3.8vw,1.5rem);color:#ffe066;text-shadow:2px 2px 0 #000;margin-top:20px;min-height:1.4em}
+.count-msg{text-align:center;font-family:var(--body-font);font-weight:900;font-size:clamp(1.05rem,3.6vw,1.3rem);color:#ffe066;text-shadow:2px 2px 0 #000;margin-top:20px;min-height:1.4em}
 
 /* Inventario */
 .hotbar{--sl:clamp(46px,13vw,74px);--s:30px;display:flex;justify-content:center;gap:3px;width:max-content;max-width:100%;margin:0 auto;padding:5px;background:rgba(0,0,0,.6);border:4px solid #0b0b0b}
@@ -185,25 +201,25 @@ a{color:inherit}
 .slot img{width:66%;height:66%;transition:transform .2s}
 .slot:hover img{transform:scale(1.12)}
 .slot.sel{border-color:#fff;box-shadow:0 0 0 3px #0b0b0b,inset 3px 3px 0 #2e2e2e;z-index:1;transform:scale(1.08)}
-.slot .k{position:absolute;right:4px;bottom:0;font-size:1.05rem;text-shadow:2px 2px 0 #000}
+.slot .k{position:absolute;right:4px;bottom:1px;font-size:.85rem;font-weight:900;line-height:1;text-shadow:2px 2px 0 #000}
 .item-info{text-align:center;margin-top:20px;min-height:4.4em}
 .item-name{font-family:var(--px-font);font-weight:700;font-size:clamp(1.35rem,4.6vw,1.8rem);color:#ffe066;text-shadow:2px 2px 0 #3a2a00}
 .item-name.pop{animation:pop .3s ease}
 @keyframes pop{0%{transform:scale(.7);opacity:0}100%{transform:none;opacity:1}}
-.item-desc{font-size:clamp(1.3rem,3.8vw,1.55rem);color:#eee}
-.hint{text-align:center;font-size:1.15rem;color:#bdbdbd;margin-top:6px}
+.item-desc{font-size:clamp(1.02rem,3.4vw,1.2rem);font-weight:800;color:#fff;text-shadow:2px 2px 0 #000;margin-top:4px}
+.hint{text-align:center;font-size:.95rem;color:#d5d5d5;margin-top:8px}
 
 /* Confirmación */
 .form{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:end;margin-top:14px}
 .field{display:flex;flex-direction:column;gap:6px}
-.field>span{font-family:var(--px-font);font-size:1rem;letter-spacing:.06em;text-transform:uppercase;color:#ffe066;text-shadow:2px 2px 0 #000}
-.field input{font-family:var(--body-font);font-size:1.55rem;color:#fff;background:#0d0d0d;border:3px solid #a0a0a0;border-radius:0;padding:.3em .5em;width:100%;outline:none}
+.field>span{font-family:var(--body-font);font-weight:900;font-size:.9rem;letter-spacing:.1em;text-transform:uppercase;color:#ffe066;text-shadow:2px 2px 0 #000}
+.field input{font-family:var(--body-font);font-weight:800;font-size:1.15rem;color:#fff;background:#0d0d0d;border:3px solid #a0a0a0;border-radius:0;padding:.3em .5em;width:100%;outline:none}
 .field input:focus{border-color:#ffe066}
 .field input.err{border-color:#ff5a5a;animation:shake .3s}
 .stepper{display:flex;align-items:center;gap:10px}
 .stepper output{min-width:2.2em;text-align:center;font-family:var(--px-font);font-weight:700;font-size:1.8rem;text-shadow:2px 2px 0 #000}
 .actions{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:26px}
-.wa-note{text-align:center;font-size:1.25rem;margin-top:14px;color:#ddd;text-shadow:2px 2px 0 #000}
+.wa-note{text-align:center;font-size:1rem;line-height:1.45;margin-top:16px;color:#f0f0f0;text-shadow:2px 2px 0 #000}
 
 /* Pastel */
 .cake-sec{text-align:center}
@@ -214,20 +230,20 @@ a{color:inherit}
   background:linear-gradient(#fff7c2 0 30%,#ffc53a 30% 65%,#ff6a1f 65%);box-shadow:0 0 calc(var(--s) * 1.4) calc(var(--s) * .5) rgba(255,170,40,.55)}
 .cake.lit .flame{opacity:1;animation:flicker .22s steps(2,end) infinite alternate}
 @keyframes flicker{from{transform:none}to{transform:scale(.86,.84) translateX(calc(var(--s) * .06))}}
-.cake-msg{font-family:var(--px-font);font-size:clamp(1.15rem,4vw,1.55rem);color:#ffe066;text-shadow:2px 2px 0 #000;margin-top:24px;min-height:1.4em}
+.cake-msg{font-family:var(--body-font);font-weight:900;font-size:clamp(1.05rem,3.8vw,1.3rem);color:#ffe066;text-shadow:2px 2px 0 #000;margin-top:24px;min-height:1.4em}
 #blowBtn{margin-top:16px}
 
 /* Pie */
 .bedrock{background-color:#1a1a1a;background-image:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.55)),var(--t-bedrock);background-size:auto,64px;text-align:center;padding:46px 16px 56px}
-.bedrock .firma{font-family:var(--px-font);font-size:clamp(1.2rem,4vw,1.6rem);text-shadow:2px 2px 0 #000}
-.bedrock small{display:block;color:#aaa;font-size:1.15rem;margin-top:8px}
+.bedrock .firma{font-family:var(--body-font);font-weight:900;font-size:clamp(1.1rem,3.8vw,1.35rem);text-shadow:2px 2px 0 #000}
+.bedrock small{display:block;color:#cfcfcf;font-size:.95rem;margin-top:8px}
 
 @media (max-width:560px){
   .form{grid-template-columns:1fr}
   .actions .mc-btn{width:100%}
 }
 @media (prefers-reduced-motion:reduce){
-  .cloud,.cube,.title.float,.scroll-hint.show,.bw.glow .blk,.ore::after,.cake.lit .flame{animation:none!important}
+  .dragon,.dragon-drop,.dragon-sprite,.cloud,.cube,.title.float,.scroll-hint.show,.bw.glow .blk,.ore::after,.cake.lit .flame{animation:none!important}
   html{scroll-behavior:auto}
 }
 </style>
@@ -262,6 +278,7 @@ a{color:inherit}
   <div class="cloud" style="--w:190px;--t:6%;--d:95s;--dl:-70s"></div>
   <div class="cloud" style="--w:90px;--t:32%;--d:58s;--dl:-22s"></div>
   <div class="trees" id="trees"></div>
+  <div class="dragons" id="dragons" aria-hidden="true"></div>
 
   <div class="hero-content">
     <div class="title" id="title" role="img" aria-label="¡Feliz cumple!"></div>
@@ -459,6 +476,7 @@ const TEX = {
     else p(x, y, pick(r, ['#a2503d','#954634','#b05a44','#8a3f2f']));
   })),
   gold: bevel(['#f9d84f','#f5cd36','#fbe066','#f0c62c'], '#fff6b8', '#ffe680', '#b8860b', '#d9a51f', 21),
+  red: bevel(['#e8503a','#e2482f','#ee5a42','#dc4229'], '#ffb09f', '#f77c64', '#7f1d10', '#a92a19', 27),
   diamond: bevel(['#5fded5','#4dd1c8','#7ae9e2','#45c4bb'], '#e2fffc', '#b0f7f2', '#1d8a83', '#2bb0a7', 23),
   planks: paint(29, (p, r) => each((x, y) => {
     const seam = [4, 11, 7, 13][Math.floor(y / 4)];
@@ -569,6 +587,8 @@ const Snd = {
   pop(){ if (!this.ok()) return; const t = this.ctx.currentTime; this.note(420, t, .12, 'sine', .25, null, 980); },
   ding(){ if (!this.ok()) return; const t = this.ctx.currentTime; this.note(1500 + Math.random() * 500, t, .08, 'sine', .08); },
   error(){ if (!this.ok()) return; const t = this.ctx.currentTime; this.note(180, t, .15, 'square', .08); this.note(140, t + .12, .2, 'square', .08); },
+  roar(){ if (!this.ok()) return; const t = this.ctx.currentTime; this.note(210, t, .7, 'sawtooth', .07, null, 70, .05); this.note(160, t + .05, .6, 'square', .04, null, 60, .05); this.noise(t, .6, .25, 500); },
+  fire(){ if (!this.ok()) return; const t = this.ctx.currentTime; this.noise(t, .55, .22, 1300, 'bandpass', .7); this.noise(t + .05, .45, .15, 400); },
   whoosh(){ if (!this.ok()) return; const t = this.ctx.currentTime; this.noise(t, .6, .4, 800, 'bandpass', .6); },
   sparkle(){ if (!this.ok()) return; const t = this.ctx.currentTime; for (let i = 0; i < 5; i++) this.note(1800 + i * 250, t + i * .05, .14, 'sine', .05); },
   levelUp(){
@@ -646,6 +666,11 @@ const FX = (() => {
     smoke(px, py){
       if (REDUCE) return;
       for (let i = 0; i < 8; i++) add({x:px + (R() - .5) * 8, y:py, vx:(R() - .5) * .8, vy:-1 - R() * 1.4, g:-.015, s:5 + R() * 6, col:'rgba(210,210,210,.85)', life:55, fade:45, drag:.97});
+    },
+    fire(px, py, dir){
+      if (REDUCE) return;
+      const C = ['#fff3a0','#ffd54a','#ffb02e','#ff6a1f','#ff3b1f'];
+      for (let i = 0; i < 26; i++) add({x:px, y:py + (R() - .5) * 6, vx:dir * (2.5 + R() * 4), vy:(R() - .5) * 1.4, g:-.03, s:4 + R() * 6, col:C[Math.floor(R() * C.length)], life:26 + R() * 18, fade:18, drag:.965});
     },
     confetti(n = 120){
       if (REDUCE) return;
@@ -759,20 +784,20 @@ function layoutTrees(mode){
   return merged;
 }
 function layoutTitle(mode){
-  const avail = Math.min(innerWidth - 24, 980), NAME = norm(CONFIG.nombre).trim();
+  const avail = Math.min(innerWidth - 20, 980), NAME = norm(CONFIG.nombre).trim();
   let nameLines = [NAME], Sz = Math.floor(Math.min(22, avail / textCols(NAME)));
   if (Sz < 6 && NAME.includes(' ')){ nameLines = NAME.split(/\s+/); Sz = Math.floor(Math.min(22, avail / Math.max(...nameLines.map(textCols)))); }
   Sz = Math.max(3, Sz);
   const TITLE = '¡FELIZ CUMPLE!'; let tLines = [TITLE], T = Math.max(4, Math.floor(Sz * .62));
   if (avail < 600 || textCols(TITLE) * T > avail){
     tLines = ['¡FELIZ', 'CUMPLE!'];
-    T = Math.max(4, Math.floor(Math.min(Sz * .85, avail / Math.max(...tLines.map(textCols)))));
+    T = Math.max(4, Math.floor(Math.min(Sz * .95, avail / Math.max(...tLines.map(textCols)))));
   }
   const tEl = $('#title'), nEl = $('#nameBlocks');
   tEl.innerHTML = ''; nEl.innerHTML = '';
   tEl.style.gap = T * 1.2 + 'px'; nEl.style.gap = Sz + 'px';
   const tb = [], nb = [];
-  tLines.forEach(l => { const w = buildWord(l, 'brick', T); tEl.appendChild(w.wrap); tb.push(...w.blocks); });
+  tLines.forEach(l => { const w = buildWord(l, 'red', T); tEl.appendChild(w.wrap); tb.push(...w.blocks); });
   nameLines.forEach(l => { const w = buildWord(l, 'gold', Sz); nEl.appendChild(w.wrap); nb.push(...w.blocks); if (S.leveled) w.wrap.classList.add('glow'); });
   if (mode === 'set') [...tb, ...nb].forEach(b => b.classList.add('set'));
   return {tb, nb};
@@ -1064,12 +1089,97 @@ async function tapCube(){
   await sleep(380);
   scrollTo(0, 0);
   $('#start').classList.add('gone'); document.body.classList.remove('locked');
+  spawnDragons();
   const io = new IntersectionObserver(es => es.forEach(e => {
     if (e.isIntersecting){ io.unobserve(e.target); BUILD[e.target.dataset.build](e.target); }
   }), {threshold:.22});
   $$('[data-build]').forEach(s => io.observe(s));
   await sleep(450);
   buildHero();
+}
+
+/* ---------- Dragones originales en pixel art ---------- */
+const DRAGON_UP = [
+"..........W.............",
+".........WwW............",
+"........WwwwW...........",
+".......WwwwwwW......h.h.",
+"......WwwwwwwwW....bbbb.",
+".....WwwwwwwwwW...bbbekb",
+"...........bbbbbbbbbbbbb",
+"..........bbbbbbbbbbbbb.",
+"b.......bbBBBBBBBbb.....",
+".b....bbbBBBBBBBbb......",
+"..bbbbbbbbbbbbbbbb......",
+"........bbbbbbbbb.......",
+".........bb....bb.......",
+".........hh....hh.......",
+"........................",
+"........................"];
+const DRAGON_DOWN = [
+"........................",
+"........................",
+"........................",
+"....................h.h.",
+"...................bbbb.",
+"..........h.h.h...bbbekb",
+"...........bbbbbbbbbbbbb",
+"..........bbbbbbbbbbbbb.",
+"b.......bbWwwwwwWbb.....",
+".b....bbbWwwwwwwWb......",
+"..bbbbbbbWwwwwwwWb......",
+"........WwwwwwwW........",
+".........WwwwwW..bb.....",
+"..........WWWW...hh.....",
+"........................",
+"........................"];
+const DRAGON_PALS = {
+  verde:   {b:'#4caf50', B:'#d4ef7a', w:'#8be095', W:'#2e7d32', h:'#ffd54a', e:'#ffffff', k:'#111111'},
+  naranja: {b:'#ff8a3d', B:'#ffe0a3', w:'#ffbd8a', W:'#c4511a', h:'#fff3b0', e:'#ffffff', k:'#111111'},
+  azul:    {b:'#3d8bff', B:'#bfe3ff', w:'#8fc2ff', W:'#1f4fb8', h:'#ffd54a', e:'#ffffff', k:'#111111'}
+};
+function dragonSheet(pal, flip){
+  const c = document.createElement('canvas'); c.width = 48; c.height = 16; const x = c.getContext('2d');
+  [DRAGON_UP, DRAGON_DOWN].forEach((frame, f) => frame.forEach((row, y) => [...row].forEach((ch, i) => {
+    if (ch === '.') return;
+    x.fillStyle = pal[ch]; x.fillRect(f * 24 + (flip ? 23 - i : i), y, 1, 1);
+  })));
+  return c.toDataURL();
+}
+const DRAGONS = [
+  {pal:'verde',   y:'7%',  dur:'20s', dl:'-7s',  dd:'0s',   dw:'clamp(84px,10.5vw,150px)', hd:'0s',   rev:false},
+  {pal:'naranja', y:'19%', dur:'25s', dl:'-16s', dd:'.4s',  dw:'clamp(64px,8vw,110px)',    hd:'-.7s', rev:true},
+  {pal:'azul',    y:'71%', dur:'31s', dl:'-5s',  dd:'.8s',  dw:'clamp(54px,5.6vw,80px)',   hd:'-1.2s',rev:false}
+];
+let fireTimer = null;
+function spawnDragons(){
+  const box = $('#dragons'); if (box.childElementCount) return;
+  DRAGONS.forEach(d => {
+    const el = document.createElement('div');
+    el.className = 'dragon' + (d.rev ? ' rev' : '');
+    el.style.setProperty('--y', d.y); el.style.setProperty('--dur', d.dur); el.style.setProperty('--dl', d.dl);
+    el.innerHTML = '<div class="dragon-drop"><div class="dragon-sprite"></div></div>';
+    const drop = el.firstChild, spr = drop.firstChild;
+    drop.style.setProperty('--dd', d.dd);
+    spr.style.setProperty('--dw', d.dw); spr.style.setProperty('--hd', d.hd);
+    spr.style.backgroundImage = `url(${dragonSheet(DRAGON_PALS[d.pal], d.rev)})`;
+    spr.dataset.dir = d.rev ? -1 : 1;
+    box.appendChild(el);
+  });
+  setTimeout(() => Snd.roar(), 500);
+  if (REDUCE) return;
+  // De vez en cuando un dragón lanza fuego
+  fireTimer = setInterval(() => {
+    if (document.hidden) return;
+    const sprites = $$('.dragon-sprite').filter(s => {
+      const r = s.getBoundingClientRect();
+      return r.right > 40 && r.left < innerWidth - 40 && r.bottom > 0 && r.top < innerHeight;
+    });
+    if (!sprites.length) return;
+    const s = sprites[Math.floor(Math.random() * sprites.length)], r = s.getBoundingClientRect(), dir = +s.dataset.dir;
+    FX.fire(dir > 0 ? r.right - r.width * .02 : r.left + r.width * .02, r.top + r.height * .36, dir);
+    Snd.fire();
+  }, 4200);
 }
 
 let lastW = innerWidth, rt;
